@@ -9,7 +9,7 @@ if (!TMDB_API_KEY) {
     throw new Error('TMDB_API_KEY is not defined in environment variables.');
 }
 
-interface Movie {
+export interface Movie {
     id: string;
     title: string;
     overview: string;
@@ -19,7 +19,7 @@ interface Movie {
     genres: { id: number; name: string; [key: string]: unknown }[];
     [key: string]: unknown;
 }
-interface Cast {
+export interface Cast {
     id: string;
     name: string;
     character: string;
@@ -27,7 +27,7 @@ interface Cast {
     [key: string]: unknown;
 }
 
-const tmdb = axios.create({
+export const tmdb = axios.create({
     baseURL: TMDB_BASE_URL,
     params: {
         api_key: TMDB_API_KEY,
